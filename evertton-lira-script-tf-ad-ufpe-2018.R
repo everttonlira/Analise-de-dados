@@ -1,13 +1,13 @@
 # Carregando pacotes
 
-if(require(rio) == F) install.packages('rio'); require(rio)
+if(require(rio) == F) install.packages('rio'); require(rio) # Algumas versões do R pedem este comando duas vezes
 if(require(ggplot2) == F) install.packages('ggplot2'); require(ggplot2)
 if(require(car) == F) install.packages('car'); require(car)
 if(require(MASS) == F) install.packages('MASS'); require(MASS)
 if(require(dotwhisker) == F) install.packages('dotwhisker'); require(dotwhisker)
 if(require(broom) == F) install.packages('broom'); require(broom)
 
-competicao <- import(file = "competicao.dta")
+competicao <- import(file = "evertton-lira-bd-td-ad-ufpe-2018.dta")
 
 # Descritivas
 summary(competicao)

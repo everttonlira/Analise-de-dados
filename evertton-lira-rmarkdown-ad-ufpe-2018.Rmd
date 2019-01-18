@@ -5,6 +5,12 @@ date: "2019"
 output: pdf_document
 linestretch: 1.5
 ---
+# Resumo
+
+O presente trabalho visa responder a questão de se condições socioeconômicas afeta a nacionalização dos partidos brasileiros. A literatura sobre o tema aponta diversos fatores que afetam a nacionalização dos partidos, como longevidade do sistema político e estruturas partidárias. Ao mesmo tempo, a literatura sobre partidos políticos demonstra de que forma variáveis sobre economia e desenvolvimento humano afetam resultados políticos. Este trabalho, portanto, busca preencher a lacuna existente na produção científica sobre a nacionalização dos partidos políticos brasileiros. Metodologicamente, utilizo modelos de regressão linear, utilizando o índice de *Party Nationalization Score* proposto por Jones and Mainwaring (2003). Como resultados, a principal hipótese, de que maior condição socioeconômica afeta positivamente a nacionalização dos partidos, foi aceita.
+
+*Palavras-chave*: partidos políticos; nacionalização; índices socioeconômicos; competição eleitoral; estruturas partidárias.
+
 # 1. Introdução  
 
 As condições socioeconômicas dos estados afetam a nacionalização dos partidos brasileiros? A literatura sobre partidos políticos no Brasil e no mundo tem evidenciado que variáveis políticas, como quantidade de candidatos, políticas públicas, gasto de campanha etc sofrem efeitos de variáveis econômicas e sociais, como crescimento, inflação, PIB e índices de desenvolvimento humano.
@@ -89,6 +95,8 @@ Apesar da importância, é necessário destacar certas limitações do índice, 
 Quando observados os dados sobre nacionalização dos partidos, temos que, em média, os partidos mais nacionalizados são PMDB (0,73), PT (0,72) e PSDB (0,66). Estes dados são para a Câmara dos deputados no período 1998-2014. Ao obsevar os *scores* para as assembleias legislativas estaduais, temos: PT e PMDB (0,73) e PSDB (0,66) (Conceição, 2018). Assim como a teoria previa, os partidos herdeiros de outros existentes no sistema político anterior são os mais nacionalizados.
 
 Conceição (2018) faz uma tipologia de nacionalização dos partidos brasileiros a partir das classificações dos partidos feitas por Morgenstern (2005):
+
+\newpage
 
 ### Tabela 1: Classificação da Nacionalização dos partidos (Conceição, 2018)
 
@@ -187,7 +195,7 @@ library(car)
 library(MASS)
 library(dotwhisker)
 library(broom)
-competicao <- import(file = "competicao.dta")
+competicao <- import(file = "evertton-lira-bd-td-ad-ufpe-2018.dta")
 library(ggplot2)
 qplot(PIB, data = competicao, geom = "histogram")
 ``` 
