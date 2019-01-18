@@ -7,9 +7,10 @@ if(require(MASS) == F) install.packages('MASS'); require(MASS)
 if(require(dotwhisker) == F) install.packages('dotwhisker'); require(dotwhisker)
 if(require(broom) == F) install.packages('broom'); require(broom)
 
+# Carregar banco de dados
 competicao <- import(file = "evertton-lira-bd-td-ad-ufpe-2018.dta")
 
-# Descritivas
+# Rodando estatísticas descritivas
 summary(competicao)
 
 # Gráficos de análises descritivas
