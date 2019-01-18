@@ -1,0 +1,1278 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.5}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Efeitos de condições socioeconômicas sobre a nacionalização dos partidos brasileiros},
+            pdfauthor={Evertton Lira},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Efeitos de condições socioeconômicas sobre a nacionalização dos partidos
+brasileiros}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Evertton Lira}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019}
+
+
+\begin{document}
+\maketitle
+
+\section{1. Introdução}\label{introducao}
+
+As condições socioeconômicas dos estados afetam a nacionalização dos
+partidos brasileiros? A literatura sobre partidos políticos no Brasil e
+no mundo tem evidenciado que variáveis políticas, como quantidade de
+candidatos, políticas públicas, gasto de campanha etc sofrem efeitos de
+variáveis econômicas e sociais, como crescimento, inflação, PIB e
+índices de desenvolvimento humano.
+
+No Brasil, os estudos sobre regionalização e nacionalização partidária
+não têm um consenso sobre se o partidos são mais regionalizados ou
+nacionalizados. Se levados em consideração vários aspectos de
+nacionalização, veremos que os partidos são mais regionalizados em umas
+dimensões e mais nacionalizados em outras.
+
+O uso de nacionalização partidária tem sido alvo de críticas da
+literatura, especialmente pela sua forma de mensuração na dimensão
+tempo. Para este trabalho, me preocupo em utilizar os dados que são mais
+recomendados pela literatura especializada.
+
+Este trabalho é dividido em seis grandes seções: primeiro, faço uma
+construção teórica sobre os temas pertinentes à este trabalho, que são
+os partidos políticos, nacionalização e variáveis socioeconômicas. Em
+segundo, apresento as hipóteses, dados e métodos deste trabalho. Em
+terceiro, traço estatísticas descritivas sobre as variáveis. Quarto,
+submeto os dados e modelos a testes de pressupostos. Quinto, apresento
+resultados dos modelos de regressão linear. Por último, apresento as
+conclusões.
+
+\section{2. Os partidos políticos}\label{os-partidos-politicos}
+
+A literatura sobre partidos têm explorado diversas faces e aspectos
+destes. Tradicinalmente, entendemos ``partido político'' por
+organizações essenciais à manutenção da democracia, já que para todo
+cargo eletivo (ao menos no Brasil) é necessário estar filiado a um
+partido político. Os partidos, portanto, têm características de
+estruturar a competição eleitoral, governar, agregar os interesses da
+população e pautar leis (Amaral, 2013).
+
+Os conceitos de \emph{partidos de massas} e \emph{partidos de quadros}
+(Duverger, 1970) ainda são úteis para pensar nas estruturas dos
+partidos. Enquanto os primeiros têm origem externa aos parlamento e são
+fortemente organizados, os últimos têm uma organização interna mais
+fluida, formada por políticos de carreira e concentração das decisões
+internas por parte de uma elite (esta informação será importante mais à
+frente).
+
+Dentro das características dos partidos citadas, a que terá foco neste
+trabalho é a que compreende a arena eleitoral. Os partidos são
+organizações de homens com um fim em comum que buscam controlar o
+aparato do governo através de meios legais (Downs, 1999). A forma como
+cada partido estrutura as eleições, as campanhas, as candidaturas etc
+passa por estruturas partidárias específicas, já que o acesso a
+determinadas instâncias de decisão são controladas por elites mais ou
+menos hierarquizadas e oligarquizadas (Guarnieri, 2009).
+
+\subsection{2.1. Partidos políticos no Brasil: legislação e
+estrutura}\label{partidos-politicos-no-brasil-legislacao-e-estrutura}
+
+A nacionalização partidária (a ser explanada na próxima seção), objeto
+deste estudo, é afetada por diversos fatores que resultam da competição
+eleitoral. Um destes é a quantidade de votos recebida que, por sua vez,
+é afetada pela quantidade de candidatos que um partido lança. Faz-se
+necessário algumas explicações sobre este processo. No Brasil, é a Lei
+nº 9.504/2011 estabelece que os partidos podem registrar candidatos até
+150\% do número de lugares a preencher.
+
+Lançar ou não lançar um candidato é resultado das decisões que são
+tomadas nas instâncias partidárias responsáveis pela seleção e registro
+de candidatos. Os partidos têm, de maneira perene, seis instâncias:
+órgãos de deliberação; direção e ação partidária; ação parlamentar;
+órgãos auxiliares; pesquisa, doutrinação e educação política e; órgãos
+de cooperação (Guarnieri, 2009). Os órgãos de deliberação são onde os
+candidatos e alianças eleitorais são definidos, além da estratégia de
+campanha.
+
+Estratégias eleitorais são um momento importante para os resultados
+futuros. A decisão de onde lançar mais ou menos candidatos e como
+competir eleitoralmente é uma forma importante de galgar sucesso
+eleitoral ou, pelo menos, tentar minar as chances de opositores
+(Palfrey, 1984; Cox, 1997). Dados de eleições municipais mostram que
+90\% de eleitos para o executivo estavam coligados (Guarnieri, 2009). O
+ato de estar coligado é uma estratégia pode multiplicar os votos
+recebidos.
+
+\section{3. Nacionalização partidária}\label{nacionalizacao-partidaria}
+
+\subsection{3.1. Conceitos e aplicações}\label{conceitos-e-aplicacoes}
+
+Nacionalização é um conceito que permeia por algumas áreas e com certa
+frequência causa alguma confusão conceitual. A literatura trabalha com
+três conceitos de nacionalização dos partidos: (1) nacionalização
+partidária, (2) nacionalização política e (3) nacionalização das
+políticas. O primeiro diz respeito à distribuição das estruturas e dos
+votos de um partido, de maneira equilibrada, no território nacional. O
+segundo, ao conteúdo político, à agenda de debates num país, num dado
+momento. O terceiro e último, à formulação e implementação de políticas
+públicas ao longo do território nacional (Jones e Mainwaring, 2003;
+Morgenstern, 2005). Para os propósitos deste trabalho, focaremos na
+\emph{nacionalização partidária}.
+
+A importância de se observar este processo (que é um \emph{continuum}) é
+descrita por Conceição (2018):
+
+\begin{quote}
+``Separando esses três processos, podemos perceber que um partido
+nacional não necessariamente defenderá apenas políticas nacionais, da
+mesma forma que um partido regional não necessariamente defenderá apenas
+políticas regionais. Ainda, um partido regional e um partido nacional
+podem tanto debater temas políticos nacionais -- nacionalização da
+política -- como temas políticos locais -- regionalismo da política. Em
+termos práticos, é de se esperar que partidos nacionais e regionais
+debatam, em graus variados, temas regionais e nacionais, que defendam,
+também em graus variados, políticas regionais e nacionais.'' (p.~80)
+\end{quote}
+
+A nacionalização partidária é frequentemente observada dentro de dois
+aspectos: estático e dinâmico. A nacionalização estática diz respeito a
+distribuição dos votos de um partido (ao se observar a nacionalização do
+partido) ou de um sistema (ao se observar um conjunto de partidos
+políticos) em um determinado ponto no tempo (uma eleição) ao longo de um
+território. A nacionalização dinâmica observa a mesma distribuição de
+votos em diversos pontos do tempo (Morgenstern et al., 2009). Quanto
+mais homogêneas as variações nos votos entre os distritos, mais
+nacionalizado o partido é.
+
+Há um pressuposto normativo forte na literatura de que a evolução das
+democracias acompanha a evolução dos partidos políticos, que sairiam de
+partidos regionalizados para partidos mais nacionalizados (Conceição,
+2018). Entendemos o por quê desse pressuposto: ao se administrar um
+país, um partido não deveria incorrer em políticas localizadas ou mesmo
+clienteslistas. No entanto, dadas as necessidades específicas de cada
+região do país, é difícil operacionalizar de maneira satisfatória a
+diferença de uma política de ação localista para uma política de que
+atenda demandas específicas.
+
+Da mesma maneira que se argumenta que o cerne da vida política no Brasil
+são os estados (Nicolau, 1996), há uma ligação entre a fragmentação
+partidária e partidos regionais (Vasselai, 2015). A fragmentação
+partidária no nível nacional é fruto, também, da competição política e
+alianças feitas no nível subnacional (dado que no Brasil os distritos
+eleitorais são os estados). Com isso, a fragmentação partidária poderia
+ser exacerbada através de mais partidos regionais, já agremiações
+políticas diversas ganhariam força no nível nacional. Todos estes
+fatores contribuem para maiores ou menores nivel de nacionalização
+partidária.
+
+Não há um consenso sobre qual medida de nacionalização (estática ou
+dinâmica) é mais útil. Na verdade, cada uma tem seu valor teórico e
+metodológico. Analisar a nacionalização num ponte específico de tempo
+(uma eleição) pode ser útil para avaliar resultados futuros de políticas
+ou de organização da vida política. Em termos metodológicos, observa-se
+a homogeneidade da distribuição dos votos (Clagett, Flanigan and Zingale
+(1984). A nacionalização dinâmica, por outro lado, pode nos ajudar a
+entender o caminho que as democrcias percorrem.
+
+Ao confrontar as duas perspectivas, a literatura nos mostra que:
+
+\begin{quote}
+``a crítica que esses autores apresentaram à perspectiva dinâmica da
+nacionalização convenceu diversos pesquisadores a respeito de sua
+inadequação para capturar o fenômeno. De acordo com eles, a mensuração
+dinâmica, na verdade, apreende a nacionalização dos padrões de
+volatilidade eleitoral, uma vez que sua unidade de análise é a variação
+nas votações dos partidos. Já a mensuração estática, por se concentrar
+na análise da homogeneidade das votações partidárias nos distritos em
+determinada eleição, de fato captura a efetiva uniformidade da presença
+dos partidos no território nacional. Isso significa que apenas a
+mensuração estática é a indicada para o estudo da nacionalização
+partidária pelo viés da inserção eleitoral das legendas (Conceição,
+2018).''
+\end{quote}
+
+Para os fins deste trabalho, no entanto, utilizaremos dados de quatro
+eleições. Já que o objetivo aqui é tentar traçar uma relação de
+causalidade entre condições socioeconômicas e o grau de nacionalização,
+julgo que quanto mais dados a análise obtiver, maior será a capacidade
+de explicaçao do fenômeno. Como este trabalho também não se propõe a
+medir nacionalização em si, é possível utilizar a perspectiva de
+nacionalização dinâmica sem perda de qualidade teórico e metodológica.
+
+Além do componente temporal da análise, é comum haver componentes
+estruturais na análise sobre nacionalização. Uma destas é a difusão
+territorial da estrutura partidária (Chhibber e Kollman, 2004; Mair,
+1987). Como outros trabalhos apontam, há grandes diferenças nas
+estruturas organizacionais dos partidos dentro deles mesmos e entre as
+unidades subnacionais. Estas diferenças normalmente são frutos da forma
+como as estruturas foram criadas e também dos interesses políticos das
+elites dos partidos (Guarnieri, 2009; Lira, 2017).
+
+Contemporaneamente, quatro dimensoões são utilizados para mensuração da
+nacionalização partidária: (1) organizacional, mensurada a partir da
+distribuição das estruturas partidárias no território nacional; (2)
+oferta de candidatos, operacionalizada a partir da quantidade e
+homogeneidade de candidatos lançados para a Câmara baixa; (3) demanda
+eleitoral, contabilizada a partir dos votos recebidos entre os distritos
+e; (4) retorno eleitoral, que são as cadeiras conquistadas (Vasselai,
+2015).
+
+No caso brasileiro, por exemplo, partidos mais antigos e maiores possuem
+estruturas organizacionais mais nacionalizadas (Guarnieri, Peres e
+Ricci, 2018). A explicação para este fato é que os partidos mais antigos
+e maiores ou já existiam no período de redemocratização e início da
+atual República ou herdaram estruturas organizacionais de partidos
+pré-existentes. A exemplo: o MDB tem longa trajetória e se constitui
+como um dos partidos mais nacionalizados. PT e PSDB, para citar os três
+maiores partidos, herdaram algumas estruturas do MDB, já que nasceram de
+dissidências deste.
+
+É importante aqui, também, fazer considerações a diferença entre
+nacionalização partidária e nacionalização do sistema partidário.
+Nacionalização dos partidos não necessariamente relfete nacionalização
+do sistema. Partidos podem ser nacionalizados em sistemas não
+nacionalizados ou mesmo ter sua intensidade mantida ou elevada em
+sistemas subnacionais (Borges, 2015). Neste trabalho, são utilizados
+dados para os partidos políticos, portanto, busca-se avaliar a
+nacionalização dos partidos.
+
+\subsection{3.2. Nacionalização partidária no
+Brasil}\label{nacionalizacao-partidaria-no-brasil}
+
+Parte dos estudos sobre os partidos políticos ou sobre o sistema
+partidário brasileiro continha uma abordagem que mostrava um caráter
+regional dos partidos políticos (Soares, 2001). Até mesmo os trabalhos
+sobre relações entre a política e suas bases demonstrava esse aspecto
+localizado da ação política (Ames, 2001). Este fato não é à toa, o
+sistema partidário brasileiro teve muitas interrupções (Kinzo, 1993),
+seja por meio de golpes de estado (1930 e 1964) ou com o fim de regimes
+autoritários (1945 e 1985).
+
+A regionalização dos partidos brasileiros era uma constante em diversos
+momentos da história política do país (Soares, 2001; Nicolau, 2012).
+Partidos que existiam durante o Império eram considerados regionais e de
+\emph{quadros}. A Proclamação da República trouxe o federalismo e o
+fortalecimento da agenda de estados, vide São Paulo e Minas Gerais, que
+tinham fortes partidos regionais e tinham domínio de oligarquias e
+interesses locais para manutenção do poder vigente de governadores e
+políticos locais (idem).
+
+Estes fenômenos, somados ao desenho constitucional, são os
+frequentemente ``culpados'' pela alta fragmentação partidária e baixo
+grau de nacionalização dos partidos políticos brasileiros (Ames, 2001).
+O atual sistema partidário, portanto, estaria numa situação incipiente
+de baixa nacionalização e alta fragmentação, o que, do ponto de vista
+normativo, teria efeitos negativos para a o desenvolvimento e
+consolidação da democracia, bem como da eficiência das instituiçõe
+políticas.
+
+Quando se observa a literatura sobre nacionalização partidária no
+Brasil, a literatura caracteriza os partidos e o sistema partidário
+brasileiro como os menos nacionalizados das Américas (Jones e
+Mainwaring, 2003). Aumentando o escopo de análise, Vasselai (2015) ao
+analisar as dimensões de organização, oferta de candidatos, demanda
+eleitoral e desempenho eleitoral mostra que os partidos brasileiros são
+mais nacionalizados em umas dimensões e mais regionalizados em outras. A
+nacionalização partidária seria maior na dimensão organizacional.
+
+Ao observar padrões de coligações eleitorais, medidos a partir de níveis
+de disputa e regiões, Krause (2005) aponta baixa nacionalização dos
+partidos. Este fenômeno é facilmente observável na prática dadas as
+quantidades de críticas que são veiculadas sobre as inconsistências das
+coligações dos partidos quando comparamos a eleição nacional com as
+eleições estaduais, e também entre estados. Guarnieri, Peres e Ricci
+(2018) mostram que os partidos utilizam a nacionalização ou
+regionalização como estratégia política de controle das atividades do
+partido no âmbito subnacional.
+
+O efeito de ``presidencialização'' das disputas eleitorais também exerce
+influÊncia neste aspecto. A polarização entre PT e PSDB para presidência
+estava gerando um efeito de atração de outros partidos para a órbita
+destes, o que causava incentivos à nacionalizaçao dos partidos (Borges,
+2015). Para este trabalho, consideramos também a influência de
+candidaturas ao governo dos estados para operacionalizar a influência
+que uma candidatura ao Executivo tem sobre a competição eleitoral.
+
+Além das influências institucionais aqui discutidas, um importante
+aspecto da nacionalização dos partidos é a continuidade de um sistema.
+No caso brasileiro, como mencionado anteriormente, houveram algumas
+descontinuidades nos sistemas políticos e partidários. Com o regime
+militar de 64, o Brasil passou a ter um autoritarismo parcialmente
+fechado, com eleições acontecendo, mesmo que apenas entre dois partido.
+Este cenário de autoritarismo competitivo permitiu que partidos como
+ARENA e MDB levassem ``herdeiros'' à democracia de 85. Os partidos
+herdeiros, PDS, PFL, PMDS e PSDB herdariam, portanto, parte dos quadros
+e estruturas dos partidos anteriores (Conceição, 2018).
+
+\section{3.3. Mensuração}\label{mensuracao}
+
+A variável dependente deste trabalho é o \emph{Party Nationalization
+Score (PNS)} proposto por Jones and Mainwaring (2003). Esta é uma das
+medidas de nacionalização partidária e a mais adequada a este trabalho
+por utilizar dados eleitorais. O \emph{PNS} é comumemnte entendido como
+``índice de GINI invertido'' pois seu cálculo é semelhante ao índice de
+GINI. Enquanto o GINI trata sobre desigualdade na distribuição de renda,
+o PNS é sobre homogeneidade da distribuição de estruturas/votos. Por
+isto o nome ``invertido'': enquanto no GINI quanto mais próximo de 1,
+mais desigual, o PNS é adaptado para quanto mais próximo de 1 for, mais
+homogênea é a distribuição.
+
+Apesar da importância, é necessário destacar certas limitações do
+índice, como por exemplo a anulação do efeito da magnitude do distrito
+no cálculo. Segundo Boschler (2006, p.~31):
+
+\begin{quote}
+O coeficiente de Gini especifica o valor 0 para distribuições
+perfeitamente iguais (um partido tem exatamente a mesma proporção de
+votos em todas as unidades territoriais) e o valor 1 para distribuições
+perfeitamente desiguais (todos os votos do partido estão concentrados em
+um único ponto do país). Jones e Mainwaring invertem esta escala para o
+seu ``Pontuação da Nacionalização Partidária'' (PNS = 1 - coeficiente de
+Gini). Sua pontuação é calculada em um primeiro passo para cada partido
+político, e depois calculada em média para todo o sistema partidário. No
+entanto, quanto maior o número de unidades territoriais em que um país
+está dividido, menor o valor do escore PNS. Assim, se tivermos dados
+mais detalhados para um país, seu sistema partidário pareceria ser mais
+heterogêneo do que se tomasse apenas unidades maiores como base para o
+cálculo. Em consequência, o PNS só pode ser comparado entre países com o
+mesmo número de unidades territoriais. Essa é uma restrição
+incontornável, uma vez que em alguns países temos dados muito finos e em
+outros apenas dados de meia dúzia de unidades. É por isso que proponho
+uma normalização do indicador pelo número de unidades territoriais, a
+fim de transformar o indicador num formato comparável. Eu uso o número
+de 10 unidades como um padrão para a comparação. Eu suponho (e mostro
+empiricamente) que o indicador PNS aumenta exponencialmente com o
+logaritmo do número de unidades tomadas em conta."
+\end{quote}
+
+Quando observados os dados sobre nacionalização dos partidos, temos que,
+em média, os partidos mais nacionalizados são PMDB (0,73), PT (0,72) e
+PSDB (0,66). Estes dados são para a Câmara dos deputados no período
+1998-2014. Ao obsevar os \emph{scores} para as assembleias legislativas
+estaduais, temos: PT e PMDB (0,73) e PSDB (0,66) (Conceição, 2018).
+Assim como a teoria previa, os partidos herdeiros de outros existentes
+no sistema político anterior são os mais nacionalizados.
+
+Conceição (2018) faz uma tipologia de nacionalização dos partidos
+brasileiros a partir das classificações dos partidos feitas por
+Morgenstern (2005):
+
+\subsubsection{Tabela 1: Classificação da Nacionalização dos partidos
+(Conceição,
+2018)}\label{tabela-1-classificacao-da-nacionalizacao-dos-partidos-conceicao-2018}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\raggedright\strut
+\textbf{Tipos}\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
+\textbf{1945-1964}\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
+\textbf{1965-1985}\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
+\textbf{1986-2014}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Nacionais\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+PSD\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+ARENA e MDB\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
+PMDB e PT\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Desnivelados\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+UDN, PTB e PCB\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
+DEM, PDT, PP, PR, PSDB, PTB e SD\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Em fluxo\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+PSP\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
+PC do B, PHS, PPS, PRB, PROS, PRP, PSB, PSC, PSD, PSOL, PSTU, PTC e
+PV\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Localizados\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+PTN, PR, PSB, PPS, PDC, PRP, PRProg, PL, PRD, PAN, PRT, POT, PST e
+MTR\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
+PAN, PCB, PCO, PEN, PGT, PMN, PPL, PRONA, PRTB, PSDC, PSL, PST, PT do B
+e PTN\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{4. Efeitos de condições socioeconômicas sobre variáveis
+políticas}\label{efeitos-de-condicoes-socioeconomicas-sobre-variaveis-politicas}
+
+Nas seções anteriores mencionei que os primeiros partidos políticos e
+também os partidos pós-Era Vargas já tinham um caráter regional. A
+tabela 1 sumariza bem estas informações. Para entender melhor a
+complexidade das relações econômicas e seus resultados na política, cabe
+aqui ressaltar algumas constatações da literatura.
+
+Com o fortalecimento das prerrogativas dos estados e, por consequência,
+o fortalecimento dos partidos estaduais (em especial nos estados de São
+Paulo e Minas Gerais), observa-se com maior força a regionalização dos
+partidos políticos brasileiros. Este processo foi interrompido com o
+regime do Estado Novo, que extinguia os partidos políticos e
+centralizava o poder nas mãos do presidente.
+
+A República de 1946, por sua vez, restauraria estas bases regionais e
+socioeconômicas. Quatro eram os grandes partidos que representavam a
+lógica dicotômica regionalismo x nacionalização da época: PSD, UDN, PTB
+e PCB. O PSD (partido mais nacionalizado) era formado por interventores
+do governo Vargas (Soares, 2001). O grau de nacionalização do partido
+era mais elevado, com uma média de 0,75 (Conceição, 2018), sendo o maior
+destes grandes partidos. Pode-se atribuir este fato ao controle que os
+governadores tinham sobre as estruturas locais dos partidos (Soares,
+2001).
+
+A UDN era formada por políticos anti-getulistas, dado que perderam poder
+quando Vargas assumiu o poder em 1930 (Soares, 2001). O partido tinha
+uma nível de nacionalização médio de 0,66 (Conceição, 2018). O quadro da
+UDN não tinha uma posição programática, mas sim servia mais como
+oposição ao governo vigente. Suas bases socioeconômicas eram
+majoritariamente áreas rurais (onde o PSD também tinha espaço), mas
+também conseguiu ganhar votos consideráveis nas regiões metropolitanas,
+porém nas classes mais altas.
+
+O PTB, por sua vez, era um partido que conseguia mais votos e adeptos
+entre trabalhadores industriais, indo à contramão dos partidos
+mencionados anteriormente. O partido tinha um índice de nacionalização
+médio de 0,64 e possuía uma estrutura muito hierárquica (Soares, 2001).
+Estes partidos, portanto, conseguem retratar um pouco a lógica de
+competição dos partidos políticos desta época.
+
+A Lei nº 9.096/1995, que dispõe sobre os partidos políticos determina
+que os partidos não podem ter caráter regional:
+
+\begin{quote}
+Art. 7º, § 1º Só é admitido o registro do estatuto de partido político
+que tenha caráter nacional, considerando-se como tal aquele que
+comprove, no período de dois anos, o apoiamento de eleitores não
+filiados a partido político, correspondente a, pelo menos, 0,5\% (cinco
+décimos por cento) dos votos dados na última eleição geral para a Câmara
+dos Deputados, não computados os votos em branco e os nulos,
+distribuídos por um terço, ou mais, dos estados, com um mínimo de 0,1\%
+(um décimo por cento) do eleitorado que haja votado em cada um deles.
+\end{quote}
+
+Na prática, os partidos podem ter estratégias políticas diferentes, como
+ter mais ou menos diretórios/comissões provisórias em certos
+estados/regiões, ou mesmo competir em regiões que lhe sejam
+eleitoralmente mais atrativas. O caminho inverso também é possível: que
+partidos sejam mais bem votados em determinadas regiões.
+
+A literatura tem mostrado que um partido como PT (no início dos anos
+2000) eram mais bem votado em capitais e grandes centros urbanos
+(Carvalho, 2003). Esses votos, no entanto, migraram nas eleições de 2006
+para as regiões Norte e Nordeste, principalmente entre os municípios com
+menor renda per capita, menores índices de desenvolvimento humano, menor
+população e também uma taxa de urbanização menor (Maciel e Ventura,
+2017). Para os autores (p.~97):
+
+\begin{quote}
+``{[}\ldots{}{]} as bases territoriais de apoio do PT no Legislativo
+federal apresentam mudanças em suas características socioeconômicas a
+partir do ano de 2006. Nos anos em que esteve na oposição o partido foi
+mais bem votado em municípios mais urbanizados e com maior renda per
+capita. No pleito em que Lula foi reeleito, a votação para a Câmara foi
+maior em municípios menos urbanizados e com menor renda per capita, e as
+eleições que se seguiram mantiveram essa tendência. {[}\ldots{}{]} As
+análises descritivas demonstram que também a partir do ano de 2006 a
+votação dos candidatos petistas a deputado federal começou a crescer na
+região Nordeste em detrimento das regiões Sul e Sudeste. A eleição de
+2014, por sua vez, foi a primeira em que o partido apresentou
+porcentagem de votação maior em cidades pequenas, com até 20 mil
+habitantes''.
+\end{quote}
+
+O PMDB é mais votado em municípios com IDH maior. O PSDB, por sua vez, é
+mais votados em municípios com IDH alto e população menor. O DEM é mais
+bem votado em municípios pobres do interior (Maciel, 2014). O que esses
+dados nos mostram é que os partidos políticos podem ter relações
+socioeconômicas bem estabelecidas com suas base mais fortes, o que
+provavelmente estaria levando estes partidos a ter mais votos. Lira
+(2017) mostra com dados para as assembleias estaduais que à medida que
+PIB e IDH aumentam, a quantidade de candidatos lançados pelos partidos
+também aumentam.
+
+Há também um padrão na composição da Câmara, segundo Rodrigues (2009,
+p.~136):
+
+\begin{quote}
+``1. Alta proporção de empresários na direita, menor proporção nocentro
+e quase inexistente na esquerda 2. Alta proporção de deputados que
+exerceram profissões liberais e intelectuais nos três blocos, embora um
+pouco mais elevada no do centro e principalmente no da esquerda. 3.
+Forte presença de professores nos partidos de esquerda, e mais fraca
+entre os partidos de centro e de direita 4. Muitos funcionários das
+altas administrações públicas dos Estados e da União nos partidos de
+direita e de centro 5. Proporção de trabalhadores manuais e empregados
+não manuais no interior das bancadas dos partidos de esquerda muito mais
+elevada do que a encontrada nos partidos de direita e de centro''.
+\end{quote}
+
+Como pudemos observar, características socioeconômicas de estados e
+municípios são fequentemente observados pela literatura enquanto fator
+de importante influência nos resultados eleitorais. Dado que nossa
+medida sobre nacionalização partidária é um construto a partir de dados
+eleitorais, é natural indagar se as condições socioeconômicas dos
+estados vão influenciar na nacionalização dos partidos.
+
+A litertura sobre institucionalização dos partidos e dos sistemas
+partidários já identificou que há uma relação positiva entre
+desenvolvimento socioeconômico de um país e institucionalização dos
+sistemas partidários (Mainwaring, 2018). Quando observados os índices de
+nacionalização partidária, percebeu-se que (com dados para os países da
+América) os países com maior índices de desenvolvimento tinham maiores
+índices de institucionalização partidária, qualidade e longevidade da
+democracia.
+
+\section{5. Hipóteses e argumentos}\label{hipoteses-e-argumentos}
+
+Dada as construções teóricas aqui apresentadas, surge a hipótese:
+
+\begin{quote}
+H1: Maiores índices de desenvolvimento dos estados levará a um aumento
+no \emph{Party Nationalization Score}
+\end{quote}
+
+Utilizando os argumentos teóricos apresentados anteriormente de que
+estados com maior PIB e IDH têm trajetórias políticas mais bem
+consolidadas e são palco de maior competição partidária, dado que têm
+maior quantidade de candidatos lançados.
+
+\begin{quote}
+H2: O aumento no \emph{Party Nationalization Score} em relação aos
+índices de desenvolvimento é ainda maior entre os partidos de esquerda
+\end{quote}
+
+Como parte da literatura argumenta que os partidos de esquerda são mais
+programáticos e com maior orientação ideológica que partidos de centro e
+de direita (Carvalho, 2003), espera-se que os índices de nacionalização
+sejam maiores nestes partidos, levando em consideração a variação a
+partir dos índices de desenvolvimento dos estados.
+
+\section{6. Dados e métodos}\label{dados-e-metodos}
+
+Para operacionalização deste trabalho, serão utilizados dados sobre
+competição eleitoral, condições socioeconômicas e nacionalização
+disponíveis em Lira (2017). Os dados sobre nacionalização foram
+retirados do dados de Conceição (2018).
+
+\subsubsection{Tabela 2: Variável dependente, mensuração e
+fonte}\label{tabela-2-variavel-dependente-mensuracao-e-fonte}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.19\columnwidth}\raggedright\strut
+\textbf{Variável dependente}\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright\strut
+\textbf{Mensuração}\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
+\textbf{Fontes}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Party Nationalization Score\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+Média do PNS dos partidos para as assembleias estaduais\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Conceição (2018)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsubsection{Tabela 3: variáveis independentes, mensuração e
+fontes}\label{tabela-3-variaveis-independentes-mensuracao-e-fontes}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.37\columnwidth}\raggedright\strut
+\textbf{Variáveis independentes}\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright\strut
+\textbf{Mensuração}\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
+\textbf{Fontes}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
+PIB estadual\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+PIB em R\$1.000\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Lira (2017)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
+IDH estadual\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+IDH estadual no ano da eleição\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Lira (2017)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
+Candidatos a deputado estadual\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+Quantidade de candidatos sobre magnitude do distrito\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Lira (2017)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
+Candidato a governador\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+\emph{Dummy}: 0= partido sem, 1= partido com candidato\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Lira (2017)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
+\emph{Dummy} esquerda\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright\strut
+1= partidos de esquerda, 0= demais ideologias\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
+Lira (2017)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Para obter os resultados, serão utilizados modelos de regressão linear
+de mínimos quadrados ordinários com termo interativo.
+
+\section{7. Resultados}\label{resultados}
+
+\subsection{7.1. Estatísticas
+descritivas}\label{estatisticas-descritivas}
+
+Uma das principais variáveis deste trabalho é o PIB. Ele é utilizado
+aqui como uma medida de riqueza dos estados, dentro do que categorizamos
+enquanto ``condição socioeconômica'', além do IDH. Fazendo uma análise
+descritiva do PIB, obtemos:
+
+\newpage
+
+\subsubsection{Gráfico 1: Distribuição do
+PIB}\label{grafico-1-distribuicao-do-pib}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-1-1.pdf}
+Como percebemos, os estados são muito diferentes em termos de Produto
+Interno Bruto. Muitos estados têm PIB pequeno, enquanto poucos estados
+têm PIB mais elevado. Enquanto o PIB dos estados de Roraima (2.313),
+Acre (2.868) e Amapá (3.292) são os mais pobres, estados como Minas
+Gerais (516.634), Rio de Janeiro (671.077) e São Paulo (1.858.196) são
+os mais ricos do país.
+
+Esta distribuição tem uma grande concentração de dados em uma das
+extremidades e uma longa cauda. Desta maneira, não estaria se
+assemelhando à uma distribuição normal. Sendo assim, para melhorar esta
+distribuição, realizamos uma transformação logarítmica:
+
+\newpage
+
+\subsubsection{Gráfico 2: Distribuição logartítmica do
+PIB}\label{grafico-2-distribuicao-logartitmica-do-pib}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-2-1.pdf}
+Após a transformação percebemos que os dados estão muito mais próximos
+de uma distribuição normal, o que será útil para as análises mais à
+frente.
+
+As principais variáveis independentes deste trabalho são PIB e IDH. Da
+mesma forma, nossa variável independente é o \emph{Party Nationalization
+Score}. Vejamos agora a distribuição de PIB e PNS:
+
+\subsubsection{\texorpdfstring{Gráfico 3: \emph{Plot} das variáveis
+log(PIB) e
+PNS}{Gráfico 3: Plot das variáveis log(PIB) e PNS}}\label{grafico-3-plot-das-variaveis-logpib-e-pns}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-3-1.pdf}
+Como podemos observar, a distribuição das duas variáveis se dá por todo
+o gráfico, ou seja, para praticamente todos os níveis de log(PIB)
+existem índices de nacionalização partidária diferentes. Os \emph{plots}
+do gráfico, no entanto, nos mostram uma concentração maior de casos na
+região central do gráfico. Para os dados de IDH, obtemos:
+
+\subsubsection{\texorpdfstring{Gráfico 4: \emph{Plot} das variáveis IDH
+e
+PNS}{Gráfico 4: Plot das variáveis IDH e PNS}}\label{grafico-4-plot-das-variaveis-idh-e-pns}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-4-1.pdf}
+De maneira semelhante, IDH se comporta de forma parecida com o PIB. Este
+padrão é esperado, dado que PIB e IDH são altamente correlacionados, e
+por este motivo são incluídos em diferentes modelos da regressão.
+
+As últimas variáveis independentes deste trabalho são Candidatos ao
+Legislativo e Candidatos ao Executivo. Como argumentado anteriormente, a
+quantidade de candidatos a deputado afeta a competição e, por
+consequência, deve afetar a nacionalização. Em relaçao a segunda
+variável, espera-se que a existência de um candidato a governador
+aumente a nacionalização do partido, devido ao efeito de
+``presidencialização'' das eleições.
+
+Para uma avaliação descritiva dos dados sobre nacionalização e ideologia
+do partido, temos:
+
+\newpage
+
+\subsubsection{Gráfico 5: Nacionalização partidária por
+ideologia}\label{grafico-5-nacionalizacao-partidaria-por-ideologia}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-5-1.pdf} O
+gráfico acima nos traz algumas informações interessantes. O violino em
+vermelho são os partido de Centro. Verde, partidos de esquerda. Azul,
+partidos de direita. Os partidos de Centro são os mais nacionalizados,
+com média de aproximadamente 0,7. Esse dado não reduz a importância da
+nossa hipótese interativa, dado que (1) a proporção de partidos de
+centro é muito menor em relação às demais ideologias, (2) em termos
+teóricos, esses partidos são os maiores herdeiros de estruturas já
+existentes.
+
+Os partidos de esquerda têm a maior distribuição na nacionalização, indo
+de índices próximos de 0 até pouco mais de 0,8. A média é de
+aproximadamente 0,5. A maior densidade da distribuição, no entanto, se
+concentra em níveis mais elevados de nacionalização. Por último, os
+partidos de direita têm média de nacionalização próxima de 0,4, com a
+maior parte da distribuição abaixo desta média.
+
+Veremos agora uma distribuição de candidatos a deputado por ideologia
+partidária:
+
+\newpage
+
+\subsubsection{Gráfico 6: Distribuição de candidatos a deputado por
+ideologia
+partidária}\label{grafico-6-distribuicao-de-candidatos-a-deputado-por-ideologia-partidaria}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-6-1.pdf}
+Da mesma maneira, o primeiro violino são partidos de centro; o segundo,
+esquerda; o terceiro, direita. Os partidos de Centro são os que lançam
+mais candidatos (média 0,7) em comparação às outras ideologias (Esquerda
+e Direita com média 0,5). A distribuição maior da Esquerda e da Direita,
+no entanto, se concentra próximo de 0.
+
+Anteriormente, mostrei que a legislação (Lei Nº 9.096/1995) permite aos
+partidos registrar candidatos em até 150\% do total de vagas. Uma
+alteração nos dispositivos, através da Lei Nº 13.165/2015 normatiza que,
+em alguns casos, esse percentual pode ser elevado até 200\%:
+
+\begin{quote}
+``Art. 10. Cada partido ou coligação poderá registrar candidatos para a
+Câmara dos Deputados, a Câmara Legislativa, as Assembleias Legislativas
+e as Câmaras Municipais no total de até 150\% (cento e cinquenta por
+cento) do número de lugares a preencher, salvo:
+\end{quote}
+
+\begin{quote}
+I - nas unidades da Federação em que o número de lugares a preencher
+para a Câmara dos Deputados não exceder a doze, nas quais cada partido
+ou coligação poderá registrar candidatos a Deputado Federal e a Deputado
+Estadual ou Distrital no total de até 200\% (duzentos por cento) das
+respectivas vagas;
+\end{quote}
+
+\begin{quote}
+II - nos Municípios de até cem mil eleitores, nos quais cada coligação
+poderá registrar candidatos no total de até 200\% (duzentos por cento)
+do número de lugares a preencher.
+\end{quote}
+
+O que vemos nesse gráfico, no entanto, é a ultrapassagem desse limite. 7
+são as ocorrências nas quatro eleições analisadas.
+
+\subsection{7.2. Análise dos pressupostos dos
+modelos}\label{analise-dos-pressupostos-dos-modelos}
+
+Quatro serão os modelos utilizados neste trabalho. Para todos a variável
+dependente (VD) é o PNS.
+
+\begin{itemize}
+\tightlist
+\item
+  Modelo 1: Candidatos a deputado + candidato a governador + IDH +
+  Ideologia
+\item
+  Modelo 2: Candidatos a deputado + candidato a governador + log(PIB) +
+  Ideologia
+\item
+  Modelo 3: Candidatos a deputado + candidato a governador + dummy
+  esquerda*IDH
+\item
+  Modelo 3: Candidatos a deputado + candidato a governador + dummy
+  esquerda*log(PIB)
+\end{itemize}
+
+\subsubsection{Pressuposto 1: o modelo de regressão é linear nos
+parâmetros}\label{pressuposto-1-o-modelo-de-regressao-e-linear-nos-parametros}
+
+Os modelos não possuem funções exponenciais, portanto, atendem ao
+primeiro pressuposto.
+
+\subsubsection{Pressuposto 2: a média dos resíduos é 0 (ou próxima de
+0)}\label{pressuposto-2-a-media-dos-residuos-e-0-ou-proxima-de-0}
+
+\begin{verbatim}
+## [1] 1.823241e-17
+\end{verbatim}
+
+\begin{verbatim}
+## [1] -3.709595e-17
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 1.334718e-17
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 6.847088e-17
+\end{verbatim}
+
+Como podemos perceber, todas as médias dos resíduos são muito próximas
+de 0 (elevados a potência negativa). Portanto, o segundo pressuposto
+também é atendido.
+
+\newpage
+
+\subsubsection{Pressuposto 3: Homoscedasticidade dos
+resíduos}\label{pressuposto-3-homoscedasticidade-dos-residuos}
+
+\textbf{MODELO 1}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+O resíduos do modelo 1 não parecem estar distribuídos aleatoriamente,
+não atendendo a este pressuposto.
+
+\newpage
+
+\textbf{MODELO 2}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Os resíduos do modelo 2 também não têm variância constante.
+
+\newpage
+
+\textbf{MODELO 3}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Os resíduos também não têm variância constante.
+
+\newpage
+
+\textbf{MODELO 4}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+Os resíduos também não têm variância constante. Uma solução para este
+problema é transformar nossa variável dependente utilizando a
+transformação de Box-Cox.
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-15-2.pdf}
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-15-3.pdf}
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-15-4.pdf}
+
+Como percebemos, não houve mudança significativa nos resíduos. Foram
+testados modelos lineares generalizados, mas também sem sucesso.
+Portanto, o pressuposto 3 não foi atendido.
+
+\subsubsection{Pressuposto 4:
+normalidade}\label{pressuposto-4-normalidade}
+
+Como observado nos gráficos de teste de normalidade Q-Q apresentados
+anteriormente, os pontos estão bem ajustados à linha, configurando
+normalidade dos dados.
+
+\subsubsection{Pressuposto 5: resíduos não são
+autocorrelacionados}\label{pressuposto-5-residuos-nao-sao-autocorrelacionados}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-16-1.pdf}
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-16-2.pdf}
+
+Quando os resíduos não estão autocorrelacionados, a segunda linha
+vertical cai para 0 ou próximo de 0. Todos os modelos atendem a este
+pressuposto.
+
+\subsubsection{Pressuposto 6: o número de observações é maior que o
+número de
+variáveis}\label{pressuposto-6-o-numero-de-observacoes-e-maior-que-o-numero-de-variaveis}
+
+Para cada variável no modelo, o banco de dados apresenta 2.908
+observações.
+
+\subsubsection{Pressuposto 7: o modelo está bem
+especificado}\label{pressuposto-7-o-modelo-esta-bem-especificado}
+
+O modelo passou por diversos testes, demonstrando estar bem especificado
+dentro dos parâmetros.
+
+\subsubsection{Pressuposto 8: sem multicolinearidade
+perfeita}\label{pressuposto-8-sem-multicolinearidade-perfeita}
+
+\begin{verbatim}
+##              GVIF Df GVIF^(1/(2*Df))
+## CANDLEG  1.092323  1        1.045142
+## CANDEXEC 1.118271  1        1.057483
+## IDH      1.052725  1        1.026024
+## IDEOL    1.130425  2        1.031123
+\end{verbatim}
+
+\begin{verbatim}
+##              GVIF Df GVIF^(1/(2*Df))
+## CANDLEG  1.046390  1        1.022932
+## CANDEXEC 1.117723  1        1.057224
+## log(PIB) 1.010303  1        1.005138
+## IDEOL    1.130378  2        1.031112
+\end{verbatim}
+
+\begin{verbatim}
+##      CANDLEG     CANDEXEC     dummyesq          IDH dummyesq:IDH 
+##     1.069950     1.054720    54.578095     1.726815    55.304557
+\end{verbatim}
+
+\begin{verbatim}
+##           CANDLEG          CANDEXEC          dummyesq          log(PIB) 
+##          1.025461          1.052339         62.871545          1.662497 
+## dummyesq:log(PIB) 
+##         63.779142
+\end{verbatim}
+
+Considera-se 4 o ponto de corte para estabelecer se as variáveis têm
+multicolineariedade. O que estiver abaixo de 4, atende ao pressuposto.
+Como observado, todas as variáveis estão muito abaixo de 4. As exceções
+são os termos interativos incluídos. No entanto, faz sentido esse
+resultado já que há uma multiplicação entre elas. Conlcuo, poranto, que
+os modelos atendem a praticamente todos os pressupostos.
+
+\subsection{7.3. Regressões}\label{regressoes}
+
+\subsubsection{Modelo 1}\label{modelo-1}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Residual standar error} & \textbf{R-squared} & \textbf{Adjusted
+R-squared}\tabularnewline
+\midrule
+\endhead
+0.1392 & 0.2969 & 0.2957\tabularnewline
+\bottomrule
+\end{longtable}
+
+No modelo 1, um aumento na variação de Candidatos ao Legislativo aumenta
+a variação no PNS, assim como esperado. Candidato ao Executivo, por sua
+vez, têm coeficiente negativo. Um aumento de uma unidade no IDH aumenta
+em 0.172 o PNS, mostrando que há uma relação positiva entre condições
+socioeoconômicas e nacionalização. Ideologia teve um impacto negativo,
+mais forte ainda nos partidos de Direita. Com exceção da variável
+CANDEXEC, todos os coeficientes são significante a nível 0.
+
+\newpage
+
+\subsubsection{Modelo 2}\label{modelo-2}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Residual standar error} & \textbf{R-squared} & \textbf{Adjusted
+R-squared}\tabularnewline
+\midrule
+\endhead
+0.1399 & 0.2895 & 0.2883\tabularnewline
+\bottomrule
+\end{longtable}
+
+O modelo 2 tem resultados semelhantes ao modelo 1. O efeito da variável
+Candidatos ao Legislativo é um pouco maior e ainda significativo.
+Candidato ao Executivo se comporta da mesma forma, bem como as variáveis
+de ideologia. Os coeficientes são muito parecidos. A variável de maior
+interesse, log(PIB), teve efeito positivo, porém muito fraco. Um aumento
+de 1\% na variaçao do PIB resulta num aumento de 0.0028\% na variação do
+PNS. CANDEXEC e log(PIB) não são estatisticamente significativos, ao
+passo que as outras variáveis continuam significativas a nível 0.
+
+\newpage
+
+\subsubsection{Modelo 3}\label{modelo-3}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Residual standar error} & \textbf{R-squared} & \textbf{Adjusted
+R-squared}\tabularnewline
+\midrule
+\endhead
+0.1399 & 0.2895 & 0.2883\tabularnewline
+\bottomrule
+\end{longtable}
+
+Neste modelo, Candidatos ao Legislativo é positiva. Um aumento de uma
+unidade nesta variável gera um aumento de 0.122 no PNS. Aqui,
+diferentemente dos outros modelos, Candidatos ao Executivo aparece
+positivo e significativo. Quando há um candidato, o PNS aumenta em 0.03.
+A \emph{dummy} esquerda tem maior coeficiente (0.26). Contrariando a
+expectativa, a interação IDH e Esquerda apresentou um coeficiente
+significativo e negativo. Um aumento de uma unidade nesta interação está
+gerando uma redução de 0.31 na nacionalização dos partidos.
+
+\newpage
+
+\subsubsection{Modelo 4}\label{modelo-4}
+
+\includegraphics{Artigofinal_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Residual standar error} & \textbf{R-squared} & \textbf{Adjusted
+R-squared}\tabularnewline
+\midrule
+\endhead
+0.1534 & 0.1461 & 0.1446\tabularnewline
+\bottomrule
+\end{longtable}
+
+Este é o único modelo em que todas as variáveis são estatisticamente
+significativas. Candidatos ao Legislativo, Candidatos ao Executivo e
+log(PIB) continuam tendo coeficientes positivos. Um auemnto de 1\% no
+PIB representa um aumento de 0.008 na nacionalização do partido. O
+efeito de CANDLEG (0.128) é maior que CANDEXEC (0.028). Da mesma
+maneira, a \emph{dummy} esquerda tem maior coeficiente, gerando um
+aumento de 0.254 quando se aumenta a independente em uma unidade. O
+termo interativo, quando aumenta uma unidade, representa uma redução da
+nacionalização do partido em 0.017.
+
+\section{8. Conclusões}\label{conclusoes}
+
+Este trabalho apresentou uma discussão sobre efeitos de condições
+socioeconômicas sobre a nacionalização dos partidos brasileiros.
+Teoricamente, apresentamos que a literatura sobre partidos políticos vêm
+estudando os impactos das organizações e estratégias partitdárias sobre
+outras variáveis políticas, como a competição eleitoral e a difusão das
+estruturas organizacionais, por exemplo.
+
+Além destes fatores, os resultados dos testes empíricos apresentados
+aqui mostraram que à medida que aumentam as condições socioeconômicas
+dos estados (PIB e IDH), a nacionalização dos partidos também aumenta,
+indo ao encontro da nossa principal hipótese. Os dados e modelos
+apresentados passaram por vários testes, tendo resultados positivos em
+praticamente todos. Os modelos continuaram heteroscedásticos apesar de
+todas as recomendações ter sido seguidas.
+
+Este artigo contêm algumas limitações, a começar pelo não cumprimento do
+pressuposto da homoscedasticidade. Os dados sobre PNS representam uma
+média por partido, por eleição para as assembleias. É preciso levar em
+consideração também as estruturas partárias (diretórios e comissões
+provisórias) para um estudo mais aprofundado sobre o tema da
+nacionalização partidária.
+
+\newpage
+
+\section{9. Referências
+bibliográficas}\label{referencias-bibliograficas}
+
+AMARAL, Oswaldo. (2013). O que sabemos sobre a organização dos partidos
+políticos: uma avaliação de 100 anos de literatura. Revista Debates, v.
+7, n. 2, pp.~11-32.
+
+AMES, Barry. (2001). Os entraves da democracia no Brasil. Rio de
+Janeiro, Editora FGV.
+
+BORGES, André. Nacionalização partidária e estratégias eleitorais no
+presidencialismo de coalizão. DADOS, vol.58, nº 3, pp.~651- 688. 2015.
+
+BRASIL. Lei nº 9.096/1995. Disponível em:
+\url{http://www.planalto.gov.br/ccivil_03/LEIS/L9096.htm}
+
+BRASIL. Lei nº 13.165/2015. Disponível em:
+\url{http://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13165.htm}
+
+CARVALHO, Nelson Rojas. (2003). E no início eram as bases: geografia
+política do voto e comportamento legislativo no Brasil. Rio de Janeiro:
+Revan.
+
+CHHIBBER, Pradeep; KOLLMAN, Ken. The Formation of National Party
+Systems: Federalism and party competition in Canada, Great Britain,
+India, and the United States. Princeton: Princeton University Press,
+2004.
+
+CLAGGETT, W; FLANIGAN, W; ZINGALE, N. Nationalization of the American
+Electorate. The American Political Science Review, vol.~78, nº1,
+pp.~77--91, 1984.
+
+CONCEIÇÃO, Silva (2018). Nacionalização partidária em marcha: processo
+de distanciamento dos partidos brasileiros da regionalização
+(1945-2014). Tese de doutorado, UFRGS.
+
+COX, Gary. (1997). Electoral rules and electoral coordination. Annual
+Review of Political Science, v. 2, pp.~145-161.
+
+DOWNS, Anthony. (1999). Uma teoria econômica da democracia. São Paulo:
+EDUSP.
+
+DUVERGER, Maurice. (1970). Os Partidos Políticos. Brasília, Ed. UnB.
+
+GUARNIERI, Fernando. (2009). A força dos ``partidos fracos'' -- um
+estudo sobre a organização dos partidos brasileiros e seu impacto na
+coordenação eleitoral. Tese de doutorado, USP.
+
+JONES, Mark; MAINWARING, Scott. The Nationalization of parties and party
+systems: An empirical measure and an application to Americas. Kellogg
+Institute Working Paper. Vol. 1, Nº 304, p.~01-30. 2003.
+
+KINZO, M. D. (1993). Radiografia do Quadro Partidário Brasileiro. Rio de
+Janeiro: Konrad-Adenauer Stiftung.
+
+KRAUSE, S. (2005). ``Uma Análise Comparativa das Estratégias Eleitorais
+nas Eleições Majoritárias de 1994, 1998 e 2002: Coligações Eleitorais
+versus Nacionalização dos Partidos e do Sistema Partidário Brasileiro'';
+In: KRAUSE, S. e SCHMITT, R. (Orgs.), Partidos e Coligações Eleitorais
+no Brasil. São Paulo: Unesp/KAS.
+
+LIRA, Evertton. (2017). Efeitos de ideologia partidária e bases
+socioeconômicas sobre a competição eleitoral dos partidos políticos nos
+estados (2002-2014). Trabalho de Conclusão de Curso, UFPE.
+
+MACIEL, Natalia. (2014). Padrões espaciais de voto, bases sociais e
+políticas dos deputados federais brasileiros: um estudo comparado entre
+PT, PSDB, PMDB e PFL/DEM. 38º Encontro Anual da Anpocs.
+
+MACIEL, Natalia; VENTURA, Tiago. (2017). O Partido dos Trabalhadores na
+Câmara dos Deputados: a evolução das bases socioeconômicas e
+territoriais (1994-2014). Opinião Pública, vol.~23, nº 1, p.~96-125.
+
+MAINWARING, S., Ed. (2018). Party Systems in Latin America:
+Institutionalization, Decay, and Collapse. Cambridge, Cambridge
+UniversityPress
+
+MORGENSTERN, Scott; SWINDLE, Stephen. Are politics local? An analysis of
+voting patterns in 23 democracies. Comparative Political Studies. Vol.
+38, Nº 2, p.~143-170. 2005.
+
+MORGENSTERN, Scott; SWINDLE, Stephen; CASTAGNOLA, Andrea. Party
+Nationalization and Institutions. The Journal of Politics. Vol. 71, Nº
+4, p.~1322-1341. 2009.
+
+NICOLAU, Jairo. (1996). Multipartidarismo e democracia: um estudo sobre
+o sistema partidário brasileiro (1985-94). Rio de Janeiro, Editora FGV.
+
+NICOLAU, Jairo. Eleições no Brasil: do Império aos dias atuais. Rio de
+Janeiro: Editora Zahar, 2012.
+
+PALFREY, Thomas. (1984). Spatial equilibrium with entry. Review of
+Economic Studies, pp.~139-156.
+
+SOARES, Gláucio Ary Dillon. (2001). A democracia interrompida. Rio de
+Janeiro, Editora FGV.
+
+VASSELAI, Fabricio. Nationalization and localism in electoral systems
+and party systems. Thesis in Political Science. São Paulo: University of
+São Paulo, 2015.
+
+
+\end{document}
