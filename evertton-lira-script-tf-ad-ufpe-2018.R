@@ -1,6 +1,6 @@
 # Carregando pacotes
 
-if(require(rio) == F) install.packages('rio'); require(rio) # Algumas versões do R pedem este comando duas vezes
+if(require(rio) == F) install.packages('rio', dependencies = TRUE); require(rio) # Algumas versões do R pedem este comando duas vezes
 if(require(ggplot2) == F) install.packages('ggplot2'); require(ggplot2)
 if(require(car) == F) install.packages('car'); require(car)
 if(require(MASS) == F) install.packages('MASS'); require(MASS)
@@ -8,6 +8,7 @@ if(require(dotwhisker) == F) install.packages('dotwhisker'); require(dotwhisker)
 if(require(broom) == F) install.packages('broom'); require(broom)
 
 # Carregar banco de dados
+# Função do pacote "rio", instalado e carregado anteriormente, que carrega os dados dentro do diretório/projeto em andamento
 competicao <- import(file = "evertton-lira-bd-td-ad-ufpe-2018.dta")
 
 # Rodando estatísticas descritivas
